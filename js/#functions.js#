@@ -5211,6 +5211,14 @@ var SEMICOLON = SEMICOLON || {};
     SEMICOLON.documentOnReady.init();
 
     // Added by Kevin
+    $(".docs-navigation").find("li a").click(function (e) {
+      e.preventDefault();
+      var target = $(this.hash);
+      $('html, body').animate({
+          scrollTop: target.offset().top - h1Height // scroll to h3 minus height of h1
+      }, 1000);
+      return false;
+  });
   });
   $window.on("load", SEMICOLON.documentOnLoad.init);
   $window.on("resize", SEMICOLON.documentOnResize.init);
